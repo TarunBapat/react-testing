@@ -27,10 +27,21 @@ describe("GetvalueTested", () => {
     //Arrange
     render(<GetvalueTested />);
     //Act
-    const ButtonByLabel = screen.getByText("original text");
+    const ButtonByLabel = screen.getByText("click here");
     userEvent.click(ButtonByLabel);
     //Assert
-    const initialValue = screen.getByText("click here");
+    const initialValue = screen.getByText("updated text");
     expect(initialValue).toBeInTheDocument;
+  });
+
+  test("after clicking button original text should hide", () => {
+    //Arrange
+    render(<GetvalueTested />);
+    //Act
+    const button = screen.getByText("click here");
+    userEvent.click(button);
+    //Assert
+    const initialValue = screen.getByText("original text");
+    expect(initialValue).not.toBeInTheDocument;
   });
 });

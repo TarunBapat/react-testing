@@ -9,7 +9,7 @@ const GetvalueTested = () => {
   return (
     <>
       <h1>Test value</h1>
-      {!changedText && <p>original text</p>}
+      <p>original text</p>
       {changedText && <p>updated text</p>}
       <button onClick={updateText}>click here</button>
     </>
